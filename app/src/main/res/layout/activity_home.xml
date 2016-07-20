@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gd.zhenghy.view.DragLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gd.zhenghy.ecaretest.HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#535353"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:paddingLeft="30dp"
+                android:weightSum="1">
+
+                <ImageView
+                    android:id="@+id/iv_setting_dl"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/settings"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingRight="15dp">
+
+                    <TextView
+                        android:id="@+id/tv_GroupName_dl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Group Name"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/txt_title"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_Role_dl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="Administrator"
+                        android:textColor="#9c9494"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_EmailAddress_dl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="zhenghy53@163.com"
+                        android:textColor="#9c9494"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:background="#303030"
+                >
+
+                <ListView
+                    android:id="@+id/lv_menulist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:listSelector="#535353"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@null"
+                    android:choiceMode="singleChoice"
+                    android:paddingTop="60dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.gd.zhenghy.view.RoundImagview
+            android:id="@+id/iv_photo_dl"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            imagecontrol:border_thickness="2dp"/>
+    </RelativeLayout>
+
+    <com.gd.zhenghy.view.MyRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee">
+
+        <include
+            android:id="@+id/rl_title"
+            layout="@layout/titlebar"
+            />
+
+
+        <FrameLayout
+            android:id="@+id/fl_content_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_title"
+            android:background="#eeeeee"
+            >
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/iv_noimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name"
+            android:text="你还没有内容"
+            android:visibility="gone"/>
+    </com.gd.zhenghy.view.MyRelativeLayout>
+
+</com.gd.zhenghy.view.DragLayout>

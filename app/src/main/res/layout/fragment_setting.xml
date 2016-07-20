@@ -1,0 +1,302 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.gd.zhenghy.fragments.SettingFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageView
+        android:id="@+id/iv_photobg_setting"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"/>
+    <ImageView
+        android:id="@+id/iv_bg_setting"
+        android:layout_below="@id/iv_photobg_setting"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorSettingBg"/>
+    <LinearLayout
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:id="@+id/tv_name_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="zhenghy hy"/>
+        <TextView
+            android:textColor="#fff"
+            android:id="@+id/tv_email_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="zhenghy53@163.com"/>
+
+    </LinearLayout>
+    <com.gd.zhenghy.view.RoundImagview
+        android:layout_centerHorizontal="true"
+        android:id="@+id/iv_photo_setting"
+        android:layout_marginTop="60dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+
+        android:background="@mipmap/photo_ring_white"
+        imagecontrol:border_thickness="2dp"
+        android:src="@mipmap/ic_launcher"/>
+    <ImageView
+        android:id="@+id/iv_camera_setting"
+        android:src="@mipmap/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_bg_setting"
+        android:layout_alignRight="@+id/iv_photo_setting"
+        android:layout_alignEnd="@+id/iv_photo_setting"/>
+
+    <com.gd.zhenghy.view.ReboundScrollView
+        android:background="#F5F5EF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_bg_setting"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+   <!--Account settings-->
+            <TextView
+                android:layout_height="55dp"
+                android:background="@color/colorSettingBg"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="Account Settings"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <LinearLayout
+                android:id="@+id/ll_changePassword_settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:text="Change Password"
+                    />
+                <ImageView
+                    style="@style/ImageViewSetting"
+                    android:src="@mipmap/arrow"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <LinearLayout
+                android:id="@+id/ll_changeNumber_settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:text="Add or change number"/>
+                <ImageView
+                    style="@style/ImageViewSetting"
+                    android:src="@mipmap/arrow"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <LinearLayout
+                android:id="@+id/ll_changeAddress_settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:text="Add or change address"/>
+                <ImageView
+                    style="@style/ImageViewSetting"
+                    android:src="@mipmap/arrow"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_signOut_settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:text="Sign out"
+                    android:textColor="@color/title_bg"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+  <!--Privacy settings-->
+
+            <TextView
+                android:paddingTop="10dp"
+                android:layout_height="60dp"
+                android:background="@color/colorSettingBg"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Privacy Settings"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Public Address"/>
+                <ToggleButton android:id="@+id/tb_pbAddress"
+                              android:layout_width="75dp"
+                              android:layout_height="40dp"
+                              android:layout_marginLeft="158dp"
+                              android:background="@drawable/selector_btn_toggle"
+                              android:checked="true"
+                              android:textOff=""
+                              android:textOn=""/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Public Email"/>
+                <ToggleButton android:id="@+id/tb_pbEmail"
+                              android:layout_width="75dp"
+                              android:layout_height="40dp"
+                              android:layout_marginLeft="175dp"
+                              android:background="@drawable/selector_btn_toggle"
+                              android:checked="true"
+                              android:textOff=""
+                              android:textOn=""/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Public Phone"/>
+                <ToggleButton android:id="@+id/tb_pbPhone"
+                              android:layout_width="75dp"
+                              android:layout_height="40dp"
+                              android:layout_marginLeft="170dp"
+                              android:background="@drawable/selector_btn_toggle"
+                              android:checked="true"
+                              android:textOff=""
+                              android:textOn=""/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <!--General settings-->
+            <TextView
+                android:layout_height="60dp"
+                android:background="@color/colorSettingBg"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="General Settings"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+            <LinearLayout
+                android:id="@+id/ll_termsAndConditions_settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textSize="16sp"
+                    style="@style/TextViewSetting"
+                    android:text="Terms and conditions"
+                    />
+                <ImageView
+                    style="@style/ImageViewSetting"
+                    android:src="@mipmap/arrow"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#9c9999"
+                />
+
+            <TextView
+                android:layout_height="80dp"
+                android:background="@color/colorSettingBg"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="Frontend version:1.0"/>
+
+
+
+        </LinearLayout>
+
+
+    </com.gd.zhenghy.view.ReboundScrollView>
+
+
+</RelativeLayout>

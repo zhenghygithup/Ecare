@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#1665AB">
+
+    <TextView
+        android:id="@+id/titlebar_tv"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:maxWidth="224dp"
+        android:text="标题"
+        style="@style/TextViewTitle"
+        />
+    <TextView
+        android:id="@+id/titlebar_tv_left"
+        style="@style/TextViewTitleSide"
+        />
+    <TextView android:id="@+id/titlebar_tv_right"
+              style="@style/TextViewTitleSide"
+              android:layout_alignParentRight="true"/>
+    <ImageView android:id="@+id/titlebar_iv_left"
+               style="@style/ImageViewTitleSide"/>
+    <ImageView android:id="@+id/titlebar_iv_right"
+               style="@style/ImageViewTitleSide"
+               android:layout_alignParentRight="true"/>
+</RelativeLayout>
