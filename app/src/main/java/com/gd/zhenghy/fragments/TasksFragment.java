@@ -5,18 +5,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-import com.gd.zhenghy.ecaretest.R;
+import com.gd.zhenghy.activity.R;
+import com.gd.zhenghy.util.ScreenUtils;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link TasksFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link TasksFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class TasksFragment extends Fragment {
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+
+
+public class TasksFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,8 +25,11 @@ public class TasksFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ListView mLv_tasks;
+    private HorizontalScrollView mHorizontalScrollView;
+    private RadioGroup mRadio_group;
 
-  //  private OnFragmentInteractionListener mListener;
+    // private OnFragmentInteractionListener mListener;
 
     public TasksFragment() {
         // Required empty public constructor
@@ -63,10 +66,50 @@ public class TasksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tasks, container, false);
+        View view=inflater.inflate(R.layout.fragment_tasks, container, false);
+        initView(view);
+        return view;
     }
 
-//    // TODO: Rename method, update argument and hook method into UI event
+    private void initView(View view) {
+        mHorizontalScrollView = (HorizontalScrollView) view.findViewById(R.id.hscro_title_tasks);
+        OverScrollDecoratorHelper.setUpOverScroll(mHorizontalScrollView);//设置可以弹性滑动
+        mLv_tasks = (ListView) view.findViewById(R.id.lv_tasks);
+        mRadio_group = (RadioGroup) view.findViewById(R.id.radio_group);
+        final int screenHalf = ScreenUtils.getScreenWidth(getActivity())/2;
+        mRadio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int scrollX = mHorizontalScrollView.getScrollX();
+                System.out.println("scrollX----->"+scrollX);
+                RadioButton rb = (RadioButton)mRadio_group.findViewById(checkedId);
+                int left = rb.getLeft();
+                int leftScreen = left-scrollX;
+               mHorizontalScrollView.smoothScrollBy((leftScreen-screenHalf), 0);
+               // mHorizontalScrollView.smoothScrollBy(screenHalf, 0);
+            }});
+
+
+    }
+
+
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+//            case R.id.ll_title_task:
+//                int index=mLl_titile_tasks.indexOfChild(view);
+//                Util.t(getActivity(),index+"");
+//                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+        }
+    }
+
+//    //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
 //        if (mListener != null) {
 //            mListener.onFragmentInteraction(uri);

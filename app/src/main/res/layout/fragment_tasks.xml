@@ -1,13 +1,128 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.gd.zhenghy.fragments.TasksFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="tasks"/>
+    <HorizontalScrollView
+        android:id="@+id/hscro_title_tasks"
+        android:layout_width="wrap_content"
+        android:scrollbars="none"
+        android:layout_height="60dp">
+        <RadioGroup
+            android:gravity="center_vertical"
+            android:id="@+id/radio_group"
+            android:layout_width="fill_parent"
+            android:layout_height="80dip"
+            android:orientation="horizontal" >
 
-</FrameLayout>
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:button="@null"
+                android:id="@+id/Medication"
+                android:text="@string/Medication"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:button="@null"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/Exercise"
+                android:text="@string/Exercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:button="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/Diet"
+                android:text="@string/Diet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:button="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/Personalcare"
+                android:text="@string/Personalcare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:button="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/Appointment"
+                android:text="@string/Appointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:button="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/Changeincondition"
+                android:text="@string/Changeincondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:button="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/BehaviourTracking"
+                android:text="@string/BehaviourTracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/Hygiene"
+                android:button="@null"
+                android:text="@string/Hygiene"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:textSize="@dimen/txt_title"
+                android:textColor="@drawable/selector_radiobutton_task"
+                android:background="@null"
+                android:button="@null"
+                android:layout_marginLeft="30dip"
+                android:id="@+id/SafetyandSecurity"
+                android:text="@string/SafetyandSecurity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </RadioGroup>
+
+    </HorizontalScrollView>
+
+<!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:src="@mipmap/tab_indicator"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:paddingTop="40dp"/>-->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_tasks"
+        android:layout_below="@id/hscro_title_tasks">
+    </ListView>
+
+</RelativeLayout>

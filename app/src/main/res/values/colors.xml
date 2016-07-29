@@ -7,6 +7,15 @@
     <color name="title_bg">#1665AB</color>
     <color name="highlighter_bg">#00ffffff</color>
     <color name="colorSettingBg">#fafaf1</color>
+    <color name="Black">#000000</color>
+    <color name="btn_green">#7ED321</color>
+    <color name="btn_blue">#3C5A98</color>
+    <color name="btn_LightBlue">#4ECBE8</color>
+    <color name="color_text_selected">#080808</color>
+    <color name="color_text_normal">#999999</color>
+
+
+
 
 
 

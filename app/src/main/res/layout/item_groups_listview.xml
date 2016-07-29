@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="80dp"
+              android:padding="10dp"
+              android:gravity="center_vertical"
+                >
+    <com.gd.zhenghy.view.RoundImagview
+        android:id="@+id/iv_photo_group"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_launcher"
+        android:background="@mipmap/photo_ring_white"/>
+    <LinearLayout
+        android:layout_toRightOf="@+id/iv_photo_group"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:paddingLeft="20dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tv_lv_groupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="groupName"
+            android:textColor="@color/Black"
+           />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Role:"
+                />
+            <TextView
+                android:id="@+id/tv_lv_groupRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_bg"
+                android:text="Ower"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_lv_groups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/select_group"/>
+
+    <!--<RadioButton-->
+        <!--android:id="@+id/rb_lv_groups"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:button="@drawable/selector_radiobutton_selectgroup"/>-->
+
+
+
+
+</RelativeLayout>

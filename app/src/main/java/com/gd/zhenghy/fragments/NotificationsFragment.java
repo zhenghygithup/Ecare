@@ -6,9 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.gd.zhenghy.ecaretest.R;
+import com.gd.zhenghy.activity.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +28,7 @@ public class NotificationsFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentNOtificationInteractionListener mListener;
-    private TextView mTextView;
+    //private TextView mTextView;
 
     public NotificationsFragment() {
         // Required empty public constructor
@@ -67,14 +66,13 @@ public class NotificationsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_notifications, container, false);
-        mTextView = ((TextView) view.findViewById(R.id.tv_notifitragment));
-        mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onButtonPressed("dianle");
-            }
-        });
-        return view;
+//        mTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onButtonPressed("dianle");
+//            }
+//        });
+       return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

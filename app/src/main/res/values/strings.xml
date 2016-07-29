@@ -112,4 +112,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--tasks的标题-->
+    <string name="Medication">Medication</string>
+    <string name="Exercise">Exercise</string>
+    <string name="Diet">Diet</string>
+    <string name="Personalcare">Personal care</string>
+    <string name="Appointment">Appointment</string>
+    <string name="Changeincondition">Change in condition</string>
+    <string name="BehaviourTracking">Behaviour Tracking</string>
+    <string name="Hygiene">Hygiene</string>
+    <string name="SafetyandSecurity">Safety and Security</string>
+
+
+    Medication
 </resources>

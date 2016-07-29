@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gd.zhenghy.ecaretest.ChangePhoneNumber">
+    tools:context="com.gd.zhenghy.activity.ChangePhoneNumber">
     <include
         android:id="@+id/changePassword_title"
         layout="@layout/titlebar"
@@ -37,9 +37,7 @@
             />
     </LinearLayout>
     <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#9c9999"
+        style="@style/ViewLine"
         />
     <LinearLayout
         android:id="@+id/ll_changeNumber_settings"
@@ -66,12 +64,10 @@
             android:text="number"/>
     </LinearLayout>
     <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#9c9999"
+        style="@style/ViewLine"
         />
     <View
-        android:id="@+id/vMasker"
+        android:id="@+id/vCountryMasker"
         android:visibility="gone"
         android:background="#e0000000"
         android:layout_width="fill_parent"

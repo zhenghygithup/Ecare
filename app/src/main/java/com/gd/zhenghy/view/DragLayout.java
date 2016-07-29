@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.gd.zhenghy.ecaretest.R;
+import com.gd.zhenghy.activity.R;
 import com.nineoldandroids.view.ViewHelper;
 
 public class DragLayout extends FrameLayout {
@@ -73,9 +73,10 @@ public class DragLayout extends FrameLayout {
             return true;
         }
 
+        //设置滑动的范围，返回0表示不能滑动
         @Override
         public int getViewHorizontalDragRange(View child) {
-            return width;
+            return 0;
         }
 
         @Override

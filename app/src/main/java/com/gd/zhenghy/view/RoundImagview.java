@@ -14,7 +14,7 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.gd.zhenghy.ecaretest.R;
+import com.gd.zhenghy.activity.R;
 
 /**
  * Created by zhenghy on 2016/7/12.

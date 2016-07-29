@@ -1,5 +1,10 @@
 package com.gd.zhenghy.activity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gd.zhenghy.adapter.AdapterforHomeMenuList;
@@ -27,18 +31,16 @@ import com.gd.zhenghy.util.Util;
 import com.gd.zhenghy.view.DragLayout;
 import com.gd.zhenghy.view.DragLayout.DragListener;
 import com.gd.zhenghy.view.TitleBuilder;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class HomeActivity extends BaseActivity implements NotificationsFragment.OnFragmentNOtificationInteractionListener{
+public class HomeActivity extends BaseActivity implements NotificationsFragment.OnFragmentNOtificationInteractionListener,SettingFragment.OnFragmentSettingInteractionListener{
 
     private DragLayout dl;
     private FrameLayout fl_content_home;
     private ListView lv_menulist;
-    private TextView tv_noimg;
     private ImageView iv_setting_dl,iv_photo_dl;
     private List<MenuList> mMenulist;
     private List<Fragment> mFranmentList=new ArrayList<Fragment>();
@@ -47,6 +49,7 @@ public class HomeActivity extends BaseActivity implements NotificationsFragment.
     private AdapterforHomeMenuList mAdapterforHomeMenuList;
     private FragmentTransaction mFt;
     private TitleBuilder mTitleBuilder;
+    private static String path="/sdcard/myHead/";//sd路径
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +65,20 @@ public class HomeActivity extends BaseActivity implements NotificationsFragment.
         setContentView(R.layout.activity_home);
         iv_setting_dl = (ImageView) findViewById(R.id.iv_setting_dl);
         iv_photo_dl= ((ImageView) findViewById(R.id.iv_photo_dl));
-        ImageLoader.getInstance().displayImage("http://c.hiphotos.baidu.com/image/w%3D2048/sign=744a86ae0d3387449cc5287c6537d8f9/ac345982b2b7d0a28e9adc63caef76094a369af9.jpg",
-                iv_photo_dl);
+        //设置头像
+        Bitmap bt = BitmapFactory.decodeFile(path + "head.jpg");//从Sd中找头像，转换成Bitmap
+        if(bt!=null){
+            @SuppressWarnings("deprecation")
+            Drawable drawable = new BitmapDrawable(bt);//转换成drawable
+            iv_photo_dl.setImageDrawable(drawable);
+
+        }else{
+            /**
+             *  如果SD里面没有则需要从服务器取头像，取回来的头像再保存在SD中
+             *
+             */
+        }
         fl_content_home = ((FrameLayout) findViewById(R.id.fl_content_home));
-        tv_noimg = (TextView) findViewById(R.id.iv_noimg);
         lv_menulist = (ListView) findViewById(R.id.lv_menulist);
         mTitleBuilder = new TitleBuilder(this).setImageLeftRes(R.mipmap.ic_launcher);
     }
@@ -247,7 +260,13 @@ public class HomeActivity extends BaseActivity implements NotificationsFragment.
                 mTitleBuilder.setTextRight("Clear All");
                 break;
             case 1:
-                mTitleBuilder.setTextRight("Create");
+                mTitleBuilder.setTextRight("Create").setRightListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(HomeActivity.this,CreateGroup.class));
+                    }
+                });
+
                 break;
             case 2:
 
@@ -256,15 +275,20 @@ public class HomeActivity extends BaseActivity implements NotificationsFragment.
             case 3:
                 break;
             case 4:
-                mTitleBuilder.setImageRightRes(R.mipmap.ic_launcher);
+                mTitleBuilder.setImageRightRes(R.mipmap.downloaded);
                 break;
             case 5:
                 break;
             case 6:
-                mTitleBuilder.setImageRightRes(R.mipmap.ic_launcher);
+                mTitleBuilder.setImageRightRes(R.mipmap.sync_cal);
                 break;
             case 7:
-                mTitleBuilder.setTitle("settings").setTextRight("Done");
+                mTitleBuilder.setTitle("settings").setTextRight("Done").setRightListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dl.open();
+                    }
+                });
                 break;
         }
    }
@@ -275,10 +299,6 @@ public class HomeActivity extends BaseActivity implements NotificationsFragment.
         Util.t(HomeActivity.this, uri);
     }
 
-
-    /*
-    将highlighter初始化
-     */
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK
@@ -296,26 +316,10 @@ public class HomeActivity extends BaseActivity implements NotificationsFragment.
         return super.onKeyDown(keyCode, event);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public void OnFragmentSettingInteraction(Bitmap bitmap) {
+        iv_photo_dl.setImageBitmap(bitmap);
+    }
 
 
     //    private void loadImage() {

@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gd.zhenghy.ecaretest.R;
+import com.gd.zhenghy.activity.R;
 
 /**
  * A simple {@link Fragment} subclass.

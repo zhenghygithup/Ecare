@@ -4,9 +4,10 @@
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dl"
+    android:background="#535353"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gd.zhenghy.ecaretest.HomeActivity">
+    tools:context="com.gd.zhenghy.activity.HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -123,14 +124,6 @@
             >
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/iv_noimg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:contentDescription="@string/app_name"
-            android:text="你还没有内容"
-            android:visibility="gone"/>
     </com.gd.zhenghy.view.MyRelativeLayout>
 
 </com.gd.zhenghy.view.DragLayout>

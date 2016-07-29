@@ -5,10 +5,33 @@
              tools:context="com.gd.zhenghy.fragments.NotificationsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv_notifitragment"
+    <LinearLayout
+        android:id="@+id/ll_nothing"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_notification_fragment"/>
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        >
 
+        <ImageView
+            android:paddingTop="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/notification_blank"
+            />
+        <TextView
+            style="@style/TextViewTitle"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="50dp"
+            android:text="Hi zhenghy"/>
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="Currently you dont have any notifications. See notifications about Journal,Groups anf Reminders here."/>
+
+    </LinearLayout>>
 </FrameLayout>

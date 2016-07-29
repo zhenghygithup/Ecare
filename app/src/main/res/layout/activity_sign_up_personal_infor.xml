@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.gd.zhenghy.activity.LoginActivityTest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:paddingTop="20dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/iv_back_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:tint="@color/title_bg"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.gd.zhenghy.view.RoundImagview
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/iv_photo_signUp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:background="@mipmap/photo_ring_white"
+                    android:src="@mipmap/user_blank"/>
+                <ImageView
+                    android:id="@+id/iv_camera_signUp"
+                    android:src="@mipmap/camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="50dp"
+                    android:layout_alignRight="@+id/iv_photo_signUp"
+                    android:layout_alignEnd="@+id/iv_photo_signUp"/>
+            </RelativeLayout>
+            <TextView
+                android:paddingTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/txt_title"/>
+
+            <EditText
+               android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:id="@+id/et_firstName_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@mipmap/signup_name"
+                android:hint="First name"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                />
+
+            <EditText
+                android:paddingLeft="15dp"
+                android:id="@+id/et_surName_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@mipmap/signup_surname"
+                android:hint="Surname"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                />
+            <RadioGroup
+                android:id="@+id/radioGroup_signup_select"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+            <RadioButton
+                android:id="@+id/rb_signup_male"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/signup_male"
+                android:button="@null"
+                android:checked="true"
+                android:drawableLeft="@drawable/selector_male_signup"
+                android:paddingLeft="55dp"
+                android:text="Male"
+                android:gravity="center_vertical"
+                android:textColor="@drawable/color_radiobutton_signup"/>
+
+            <RadioButton
+                android:paddingLeft="55dp"
+                android:background="@mipmap/signup_female"
+                android:id="@+id/rb_signup_female"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableLeft="@drawable/selector_female_signup"
+                android:text="Female"
+                android:gravity="center_vertical"
+                android:textColor="@drawable/color_radiobutton_signup"/>
+            </RadioGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@mipmap/signup_datebirth">
+                <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Date of birth"
+                    android:gravity="center_horizontal|center_vertical"/>
+                <TextView
+                    android:id="@+id/tv_dateBirth_signUp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="DD-MMM-YYYY"
+                    android:textColor="@color/Black"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@mipmap/signup_mobile">
+                <ImageView
+                    android:id="@+id/iv_countryFlag_signUp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/signup_flag"
+                   android:src="@mipmap/ic_launcher"
+                    android:gravity="center_horizontal|center_vertical"/>
+                <TextView
+                    android:id="@+id/tv_countryCode_signUp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="+994"
+                    android:textColor="@color/Black"/>
+                <EditText
+                    android:id="@+id/et_mobile_signUp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                  android:hint="Mobile number"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_signUp_signUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Sign up"
+                android:gravity="center"
+                android:textSize="@dimen/txt_title"
+                android:textColor="@color/txt_white"
+                android:textAllCaps="false"
+                android:background="@drawable/btn_green"
+                />
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If you have an existing account then go to"
+            android:gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/tv_signIn_signUp"
+                android:paddingTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_bg"
+                android:text="Sign in page"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

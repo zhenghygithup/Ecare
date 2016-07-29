@@ -5,7 +5,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.gd.zhenghy.ecaretest.BaseActivity;
+import com.gd.zhenghy.activity.BaseActivity;
 
 import java.util.Stack;
 

@@ -1,6 +1,7 @@
 package com.gd.zhenghy.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,24 +17,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
-import com.gd.zhenghy.ecaretest.ChangePassword;
-import com.gd.zhenghy.ecaretest.ChangePhoneNumber;
-import com.gd.zhenghy.ecaretest.R;
+import com.gd.zhenghy.activity.ChangeAddress;
+import com.gd.zhenghy.activity.ChangePassword;
+import com.gd.zhenghy.activity.ChangePhoneNumber;
+import com.gd.zhenghy.activity.LoginActivityTest;
+import com.gd.zhenghy.activity.R;
+import com.gd.zhenghy.util.Util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+
+import static android.view.View.OnClickListener;
+import static android.view.View.inflate;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SettingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SettingFragment extends Fragment implements OnItemClickListener,View.OnClickListener {
+public class SettingFragment extends Fragment implements OnItemClickListener,OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -52,7 +62,7 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
     private LinearLayout mLl_changeAddress_settings;
     private LinearLayout mLl_signOut_settings;
     private LinearLayout mLl_termsAndConditions_settings;
-
+    private OnFragmentSettingInteractionListener mListener;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -89,12 +99,14 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment]
-        View view=View.inflate(getActivity(),R.layout.fragment_setting,null);
+        View view= inflate(getActivity(),R.layout.fragment_setting,null);
         initView(view);
         return view;
     }
 
     private void initView(View view) {
+        ScrollView scrollView= (ScrollView) view.findViewById(R.id.scrollview);
+        OverScrollDecoratorHelper.setUpOverScroll(scrollView);//设置可以弹性滑动
         mIv_photo_setting = ((ImageView) view.findViewById(R.id.iv_photo_setting));
         mIv_photobg_setting = ((ImageView) view.findViewById(R.id.iv_photobg_setting));
         mIv_camera_setting = ((ImageView) view.findViewById(R.id.iv_camera_setting));
@@ -110,7 +122,6 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
         mLl_signOut_settings.setOnClickListener(this);
         mLl_termsAndConditions_settings.setOnClickListener(this);
         Bitmap bt = BitmapFactory.decodeFile(path + "head.jpg");//从Sd中找头像，转换成Bitmap
-       // Bitmap btbj = BitmapFactory.decodeFile(path + "headbg.jpg");
         if(bt!=null){
             @SuppressWarnings("deprecation")
             Drawable drawable = new BitmapDrawable(bt);//转换成drawable
@@ -136,24 +147,46 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
                 break;
             case R.id.ll_changePassword_settings:
                 Intent changePassword=new Intent(getContext(),ChangePassword.class);
-                startActivityForResult(changePassword,1);
+                startActivity(changePassword);
                 break;
             case R.id.ll_changeNumber_settings:
                 Intent changePhoneNumber=new Intent(getContext(),ChangePhoneNumber.class);
-                startActivityForResult(changePhoneNumber,2);
+                startActivity(changePhoneNumber);
                 break;
             case R.id.ll_changeAddress_settings:
-
+                Intent changeAddress=new Intent(getContext(),ChangeAddress.class);
+                startActivity(changeAddress);
                 break;
             case R.id.ll_signOut_settings:
-
+                Intent signout=new Intent(getContext(),LoginActivityTest.class);
+                startActivity(signout);
                 break;
             case R.id.ll_termsAndConditions_settings:
-
+               // Intent termsAndConditions=new Intent(getContext(),TermsAndConditions.class);
+              //startActivity(termsAndConditions);
+                termsAlertView();
                 break;
-
         }
 
+    }
+
+    /**
+    *设置条约和条款的点击事件
+    *@author zhenghy
+    *created at 2016/7/18 15:04
+    */
+    private void termsAlertView() {
+        OnItemClickListener on=new OnItemClickListener() {
+            @Override
+            public void onItemClick(Object o, int position) {
+                Util.t(getActivity(),position+"");
+            }
+        };
+
+       AlertView termsAlert=new AlertView("Terms and Conditions", "   I accept and agree to all eCare terms and conditions",null,null,
+               new String[]{"Done", "Read Terms and Conditions"},
+                getActivity(), AlertView.Style.Alert, on);
+        termsAlert.show();
     }
 
     @Override
@@ -197,14 +230,17 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
                 if (data != null) {
                     Bundle extras = data.getExtras();
                     head = extras.getParcelable("data");
+
                     if(head!=null){
                         /**
                          * 上传服务器代码
                          */
+
                         setPicToView(head);//保存在SD卡中
                         mIv_photo_setting.setImageBitmap(head);//用ImageView显示出来
                         //Bitmap bitmap=doBlur(head,50,false);
-                       mIv_photobg_setting.setImageBitmap(doBlur(head,50,false));
+                      mIv_photobg_setting.setImageBitmap(doBlur(head,50,false));
+                        onButtonCamera(head);
                     }
                 }
                 break;
@@ -231,6 +267,7 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
         intent.putExtra("return-data", true);
         startActivityForResult(intent, 3);
     }
+
     private void setPicToView(Bitmap mBitmap) {
         String sdStatus = Environment.getExternalStorageState();
         if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用
@@ -242,16 +279,17 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
         String fileName =path + "head.jpg";//图片名字
         try {
             b = new FileOutputStream(fileName);
-           // mBitmap.compress(Bitmap.Config.ARGB_8888,100,b)
-            mBitmap.compress(Bitmap.CompressFormat.PNG, 100, b);// 把数据写入文件
-
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {
                 //关闭流
+                if (b!=null){
                 b.flush();
                 b.close();
+                }else{
+                    Util.t(getActivity(),"null");}
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -260,40 +298,49 @@ public class SettingFragment extends Fragment implements OnItemClickListener,Vie
     }
 
 
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonCamera(Bitmap bitmap) {
+        if (mListener != null) {
+            mListener.OnFragmentSettingInteraction(bitmap);
+        }
+    }
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentSettingInteractionListener) {
+            mListener = (OnFragmentSettingInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p/>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentSettingInteractionListener {
+        // TODO: Update argument type and name
+        void OnFragmentSettingInteraction(Bitmap bitmap);
+    }
 /*
 模糊背景方法
  */
     public  Bitmap doBlur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
-
-        // Stack Blur v1.0 from
-        // http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
-        //
-        // Java Author: Mario Klingemann <mario at quasimondo.com>
-        // http://incubator.quasimondo.com
-        // created Feburary 29, 2004
-        // Android port : Yahel Bouaziz <yahel at kayenko.com>
-        // http://www.kayenko.com
-        // ported april 5th, 2012
-
-        // This is a compromise between Gaussian Blur and Box blur
-        // It creates much better looking blurs than Box Blur, but is
-        // 7x faster than my Gaussian Blur implementation.
-        //
-        // I called it Stack Blur because this describes best how this
-        // filter works internally: it creates a kind of moving stack
-        // of colors whilst scanning through the image. Thereby it
-        // just has to add one new block of color to the right side
-        // of the stack and remove the leftmost color. The remaining
-        // colors on the topmost layer of the stack are either added on
-        // or reduced by one, depending on if they are on the right or
-        // on the left side of the stack.
-        //
-        // If you are using this algorithm in your code please add
-        // the following line:
-        //
-        // Stack Blur Algorithm by Mario Klingemann <mario@quasimondo.com>
-
         Bitmap bitmap;
         if (canReuseInBitmap) {
             bitmap = sentBitmap;

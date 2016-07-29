@@ -2,6 +2,7 @@ package com.gd.zhenghy.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,13 +17,13 @@ public class ChangePhoneNumber extends BaseActivity{
     private TitleBuilder mTitleBuilder;
     private ArrayList<CountryBean> optionsCountryItems = new ArrayList<>();
     OptionsPickerView pvOptionsCountry;
-    View vMasker;
+    View vCountryMasker;
     private TextView mTv_selectCountry;
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_change_phone_number);
-        vMasker=findViewById(R.id.vMasker);
+        vCountryMasker=findViewById(R.id.vCountryMasker);
         mTitleBuilder = new TitleBuilder(this);
         mTitleBuilder.setTitle("Change Phone Number").setTextLeft("Back").setTextRight("Done");
         EditText et_countryCode= (EditText) findViewById(R.id.et_countryCode);
@@ -66,13 +67,15 @@ public class ChangePhoneNumber extends BaseActivity{
                 //                        + options2Items.get(options1).get(option2)
                 //                        + options3Items.get(options1).get(option2).get(options3).getPickerViewText();
                 mTv_selectCountry.setText(tx);
-                vMasker.setVisibility(View.GONE);
+                vCountryMasker.setVisibility(View.GONE);
             }
         });
         //点击弹出选项选择器
         mTv_selectCountry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //先隐藏键盘再弹出view
+                ((InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(ChangePhoneNumber.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 pvOptionsCountry.show();
             }
         });

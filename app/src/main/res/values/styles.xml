@@ -69,6 +69,13 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <!--设置页面的分割线-->
+    <style name="ViewLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#9c9999</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+
 
 
 </resources>

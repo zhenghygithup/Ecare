@@ -48,10 +48,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-
         android:background="@mipmap/photo_ring_white"
         imagecontrol:border_thickness="2dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/user_blank"/>
     <ImageView
         android:id="@+id/iv_camera_setting"
         android:src="@mipmap/camera"
@@ -61,7 +60,8 @@
         android:layout_alignRight="@+id/iv_photo_setting"
         android:layout_alignEnd="@+id/iv_photo_setting"/>
 
-    <com.gd.zhenghy.view.ReboundScrollView
+    <ScrollView
+        android:id="@+id/scrollview"
         android:background="#F5F5EF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,9 +83,7 @@
                 android:text="Account Settings"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <LinearLayout
                 android:id="@+id/ll_changePassword_settings"
@@ -102,9 +100,7 @@
                     android:src="@mipmap/arrow"/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <LinearLayout
                 android:id="@+id/ll_changeNumber_settings"
@@ -120,9 +116,7 @@
                     android:src="@mipmap/arrow"/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <LinearLayout
                 android:id="@+id/ll_changeAddress_settings"
@@ -139,9 +133,7 @@
             </LinearLayout>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
 
             <LinearLayout
@@ -156,9 +148,7 @@
                     android:textColor="@color/title_bg"/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
   <!--Privacy settings-->
 
@@ -170,11 +160,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Privacy Settings"/>
-
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
 
             <LinearLayout
@@ -197,9 +184,7 @@
                               android:textOn=""/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -221,9 +206,7 @@
                               android:textOn=""/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -245,9 +228,7 @@
                               android:textOn=""/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <!--General settings-->
             <TextView
@@ -260,9 +241,7 @@
                 android:text="General Settings"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
             <LinearLayout
                 android:id="@+id/ll_termsAndConditions_settings"
@@ -279,9 +258,7 @@
                     android:src="@mipmap/arrow"/>
             </LinearLayout>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="#9c9999"
+                style="@style/ViewLine"
                 />
 
             <TextView
@@ -292,11 +269,10 @@
                 android:text="Frontend version:1.0"/>
 
 
-
         </LinearLayout>
 
 
-    </com.gd.zhenghy.view.ReboundScrollView>
+    </ScrollView>
 
 
 </RelativeLayout>

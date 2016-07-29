@@ -7,8 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gd.zhenghy.activity.R;
 import com.gd.zhenghy.bean.MenuList;
-import com.gd.zhenghy.ecaretest.R;
 
 import java.util.List;
 
@@ -18,8 +18,9 @@ import java.util.List;
 public class AdapterforHomeMenuList extends BaseAdapter {
     private List<MenuList> mList;
     private Context mContext;
-    public AdapterforHomeMenuList(Context mContext,List<MenuList> stringList) {
-        this.mContext=mContext;
+
+    public AdapterforHomeMenuList(Context mContext, List<MenuList> stringList) {
+        this.mContext = mContext;
         mList = stringList;
     }
 
@@ -41,15 +42,15 @@ public class AdapterforHomeMenuList extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
-        if (view==null){
-            view=View.inflate(mContext, R.layout.item_home_menulist,null);
-            viewHolder=new ViewHolder();
-            viewHolder.tv_title_dl= ((TextView) view.findViewById(R.id.tv_title_dl));
-            viewHolder.iv_drawable_dl= ((ImageView) view.findViewById(R.id.iv_drawable_dl));
-            viewHolder.iv_highlighter_dl= ((ImageView) view.findViewById(R.id.iv_highlighter_dl));
+        if (view == null) {
+            view = View.inflate(mContext, R.layout.item_home_menulist, null);
+            viewHolder = new ViewHolder();
+            viewHolder.tv_title_dl = ((TextView) view.findViewById(R.id.tv_title_dl));
+            viewHolder.iv_drawable_dl = ((ImageView) view.findViewById(R.id.iv_drawable_dl));
+            viewHolder.iv_highlighter_dl = ((ImageView) view.findViewById(R.id.iv_highlighter_dl));
             view.setTag(viewHolder);
-        }else{
-            viewHolder= (ViewHolder) view.getTag();
+        } else {
+            viewHolder = (ViewHolder) view.getTag();
         }
 
         viewHolder.tv_title_dl.setText(mList.get(i).getTitle());
@@ -58,9 +59,11 @@ public class AdapterforHomeMenuList extends BaseAdapter {
         //
         return view;
     }
-    class ViewHolder{
+
+    class ViewHolder {
         TextView tv_title_dl;
         ImageView iv_drawable_dl;
         ImageView iv_highlighter_dl;
     }
+
 }
