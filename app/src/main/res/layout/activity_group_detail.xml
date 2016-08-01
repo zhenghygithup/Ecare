@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gd.zhenghy.activity.GroupDetail"
+    android:orientation="vertical">
+    <include
+        layout="@layout/titlebar"
+        />
+    <TextView
+        android:padding="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="There are your eCare members.Add members to interact share thoughts with them"
+        android:gravity="center_horizontal"/>
+
+
+    <GridView
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:scrollbars="none"
+        android:id="@+id/gv_member_GroupDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:horizontalSpacing="25dp"
+        android:verticalSpacing="25dp"  >
+
+    </GridView>
+
+</LinearLayout>

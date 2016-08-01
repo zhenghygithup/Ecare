@@ -3,11 +3,10 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.gd.zhenghy.activity.LoginActivityTest"
+    tools:context="com.gd.zhenghy.activity.CreateGroup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    android:paddingTop="20dp"
 >
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,30 +14,32 @@
         android:orientation="vertical">
         <include layout="@layout/titlebar"
             android:id="@+id/titleBar_CreateGroup"/>
+
             <RelativeLayout
                 android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.gd.zhenghy.view.RoundImagview
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/iv_photo_signUp"
+                    android:id="@+id/iv_photo_CreateGroup"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
                     android:background="@mipmap/photo_ring_white"
                     android:src="@mipmap/user_blank"/>
                 <ImageView
-                    android:id="@+id/iv_camera_signUp"
+                    android:id="@+id/iv_camera_CreateGroup"
                     android:src="@mipmap/camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:paddingTop="50dp"
-                    android:layout_alignRight="@+id/iv_photo_signUp"
-                    android:layout_alignEnd="@+id/iv_photo_signUp"/>
+                    android:layout_alignRight="@+id/iv_photo_CreateGroup"
+                    android:layout_alignEnd="@+id/iv_photo_CreateGroup"/>
             </RelativeLayout>
 
         <TextView
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Group Information"/>
@@ -47,10 +48,49 @@
             style="@style/ViewLine"
             />
         <EditText
+            android:id="@+id/et_groupName_CreateGroup"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@null"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             android:hint="Enter name for group"/>
+        <View
+            android:paddingTop="3dp"
+            style="@style/ViewLine"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Create Group For"
+                android:gravity="center_vertical"
+                android:textSize="19sp"
+                android:textColor="@color/title_bg"/>
+            <TextView
+                android:id="@+id/tv_chooseRole_CreateGroup"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Myself"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="@color/title_bg"/>
+
+        </RelativeLayout>
+        <NumberPicker
+            android:visibility="gone"
+            android:id="@+id/pick_selectRole_Create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        </NumberPicker>
         <View
             android:paddingTop="3dp"
             style="@style/ViewLine"

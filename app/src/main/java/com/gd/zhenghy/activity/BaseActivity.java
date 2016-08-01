@@ -24,8 +24,6 @@ public abstract class BaseActivity extends FragmentActivity implements
     public abstract void initView();
     public abstract void initData();
     public abstract void initEvent();
-
-
     public abstract void ViewClick(View v);
 
 

@@ -1,11 +1,13 @@
 package com.gd.zhenghy.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
+import com.gd.zhenghy.activity.GroupDetail;
 import com.gd.zhenghy.activity.R;
 import com.gd.zhenghy.bean.GrouplistBean;
 import com.gd.zhenghy.util.Util;
@@ -33,7 +36,6 @@ public class GroupFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -83,13 +85,23 @@ public class GroupFragment extends Fragment {
         mLv_group = (ListView) view.findViewById(R.id.lv_group_selectGroup);
         initdata();
         initEvent();
-
         return view;
     }
 
     private void initEvent() {
         GrouplistAdapter adapter=new GrouplistAdapter(mGrouList);
         mLv_group.setAdapter(adapter);
+        //OverScrollDecoratorHelper.setUpOverScroll(mLv_group);
+        mLv_group.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle bundle=new Bundle();
+                bundle.putString("groupName",mGrouList.get(i).getGroupName());
+                Intent intent=new Intent(getActivity(), GroupDetail.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initdata() {

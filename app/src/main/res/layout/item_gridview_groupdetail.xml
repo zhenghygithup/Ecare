@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="200dp"
+              android:padding="20dp"
+              android:background="@drawable/bg_itemgridview_groupdetail">
+    <com.gd.zhenghy.view.RoundImagview
+        android:id="@+id/iv_photo_groupdetail"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/add_member_default"/>
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_memberName_gv"
+        android:text="memberName"
+        android:gravity="center_horizontal"
+        android:textColor="@color/title_bg"
+        />
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_memberRole_gv"
+        android:text="role"
+        />
+</LinearLayout>

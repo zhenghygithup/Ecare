@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/search_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/titlebar"
+                     android:id="@+id/title"/>
+            <TextView
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Member's Detail"/>
+            <View
+                style="@style/ViewLine"
+                />
+            <EditText
+                android:id="@+id/et_MemberName_AddMember"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:hint="Enter Member's Name"/>
+            <View
+                android:paddingTop="3dp"
+                style="@style/ViewLine"
+                />
+            <EditText
+                android:id="@+id/et_MemberEmail_AddMember"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:hint="Enter Member's Email"/>
+            <View
+                android:paddingTop="3dp"
+                style="@style/ViewLine"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Select Role"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@mipmap/select_role"
+                    android:gravity="center_vertical"
+                    android:textSize="19sp"
+                    android:textColor="@color/Black"/>
+                <TextView
+                    android:id="@+id/tv_chooseRole_CreateGroup"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Family"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textColor="@color/title_bg"/>
+
+            </RelativeLayout>
+            <NumberPicker
+                android:visibility="gone"
+                android:id="@+id/pick_selectRole_AddMember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </NumberPicker>
+            <View
+                android:paddingTop="3dp"
+                style="@style/ViewLine"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <TextView
+            android:layout_gravity="bottom"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Enter owner's email id or pick from contacts and we will send request on email ID"/>
+        <TextView
+            android:id="@+id/tv_pickContacts_addMember"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick from contacts"
+            android:padding="15dp"
+            android:textColor="@color/title_bg"
+            android:gravity="center_vertical"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@mipmap/add"/>
+    </LinearLayout>
+</LinearLayout>

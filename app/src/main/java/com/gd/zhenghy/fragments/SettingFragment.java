@@ -189,6 +189,8 @@ public class SettingFragment extends Fragment implements OnItemClickListener,OnC
         termsAlert.show();
     }
 
+
+    //设置头像的点击事件
     @Override
     public void onItemClick(Object o, int position) {
         switch (position){
@@ -216,7 +218,6 @@ public class SettingFragment extends Fragment implements OnItemClickListener,OnC
                 if (resultCode ==-1) {
                     cropPhoto(data.getData());//裁剪图片
                 }
-
                 break;
             case 2:
                 if (resultCode == -1) {

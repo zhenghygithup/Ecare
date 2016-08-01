@@ -34,14 +34,22 @@
             android:layout_height="wrap_content"
             android:padding="30dp"
             android:text="Currently you dont have any group to interact.Create group and start sharing thoughts with them."/>
-
     </LinearLayout>
+    <com.gd.zhenghy.view.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.gd.zhenghy.view.MyListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_group_selectGroup">
+        </com.gd.zhenghy.view.MyListView>
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_group_selectGroup">
-    </ListView>
+    </com.gd.zhenghy.view.ReboundScrollView>
+
+
+
+
+
 
 
 </RelativeLayout>
