@@ -193,7 +193,8 @@ public  class CreateGroup extends BaseActivity implements NumberPicker.OnValueCh
 
         }
         super.onActivityResult(requestCode, resultCode, data);
-    };
+    }
+
     /**
      * 调用系统的裁剪
      * @param uri
