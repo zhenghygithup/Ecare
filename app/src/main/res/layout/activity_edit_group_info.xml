@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.gd.zhenghy.activity.EditGroupInfo">
+    <include
+        layout="@layout/titlebar"
+        android:id="@+id/title_editGroup"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is your eCare group.In this tab you can edit group information."
+        android:padding="30dp"
+        android:gravity="center_horizontal"/>
+    <RelativeLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.gd.zhenghy.view.RoundImagview
+            android:layout_centerHorizontal="true"
+            android:id="@+id/iv_GroupPhoto_EditGroup"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/photo_ring_white"
+            android:src="@mipmap/user_blank"/>
+        <ImageView
+            android:id="@+id/iv_GroupCamera_EditGroup"
+            android:src="@mipmap/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingTop="50dp"
+            android:layout_alignRight="@+id/iv_GroupPhoto_EditGroup"
+            android:layout_alignEnd="@+id/iv_GroupPhoto_EditGroup"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/tv_groupName_EditGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/title_bg"
+            android:text="GroupName"/>
+        <ImageView
+            android:id="@+id/iv_editGroupName_editGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:paddingLeft="15dp"
+            android:src="@mipmap/edit_group_name"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_numMember_editGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:text="1 member"/>
+    <TextView
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Member's Details"/>
+    <com.gd.zhenghy.view.MyGridView
+        android:paddingTop="15dp"
+        android:id="@+id/gv_memberDetail_EditGroup"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:scrollbars="none"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:horizontalSpacing="25dp"
+        android:verticalSpacing="25dp"/>
+
+
+
+</LinearLayout>
+</ScrollView>

@@ -61,10 +61,19 @@
         </activity>
         <activity android:name=".CreateGroup">
         </activity>
-        <activity android:name=".GroupDetail">
+        <activity android:name=".GroupName">
         </activity>
-        <activity android:name=".AddMember"
-                  android:windowSoftInputMode="adjustResize|stateHidden">
+        <activity
+            android:name=".AddMember"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+        <activity android:name=".Profile">
+        </activity>
+        <activity android:name=".EditGroupInfo">
+        </activity>
+        <activity android:name=".EditGroupName">
+        </activity>
+        <activity android:name=".SelectedTask">
         </activity>
     </application>
 

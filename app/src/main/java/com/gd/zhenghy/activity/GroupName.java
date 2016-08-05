@@ -1,9 +1,11 @@
 package com.gd.zhenghy.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -21,20 +23,18 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GroupDetail extends BaseActivity {
+public class GroupName extends BaseActivity {
 
 
     @Bind(R.id.gv_member_GroupDetail)
     GridView mGvMemberGroupDetail;
-    private List<GrouplistBean> mGrouList;
+    private ArrayList<GrouplistBean> mGrouList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-
     }
-
     @Override
     public void initView() {
         setContentView(R.layout.activity_group_detail);
@@ -44,15 +44,23 @@ public class GroupDetail extends BaseActivity {
         TitleBuilder mTitleBuilder = new TitleBuilder(this).setTitle(groupName).setTextLeft("Back").setLeftListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GroupDetail.this.finish();
+                GroupName.this.finish();
             }
         }).setTextRight("Edit").setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(GroupName.this,EditGroupInfo.class);
+                intent.putExtra("mGrouList",mGrouList);
+               startActivity(intent);
+                int version = Integer.valueOf(android.os.Build.VERSION.SDK);
+                if(version  >= 5)
+                {
+                    overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
+
+                }
 
             }
         });
-
     }
 
     @Override
@@ -78,7 +86,15 @@ public class GroupDetail extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i==0){
-                    Utily.go2Activity(GroupDetail.this,AddMember.class);
+                    Utily.go2Activity(GroupName.this,AddMember.class);
+                }else{
+
+                    Bundle bundle=new Bundle();
+                    GrouplistBean grouplistBean=mGrouList.get(i-1);
+                    bundle.putParcelable("grouplistBean", grouplistBean);
+                    Utily.go2Activity(GroupName.this,Profile.class,bundle);
+
+
                 }
             }
         });
@@ -118,7 +134,7 @@ public class GroupDetail extends BaseActivity {
         public View getView(final int i, View view, ViewGroup viewGroup) {
             ViewHolder viewHolder = null;
             if (view == null) {
-                view = View.inflate(GroupDetail.this, R.layout.item_gridview_groupdetail, null);
+                view = View.inflate(GroupName.this, R.layout.item_gridview_groupdetail, null);
                 viewHolder = new ViewHolder(view);
                 view.setTag(viewHolder);
             } else {
@@ -132,6 +148,11 @@ public class GroupDetail extends BaseActivity {
                 viewHolder.tvmemberRolegv.setText(list.get(i-1).getYourRole());
                 ImageLoader.getInstance().displayImage(list.get(i-1).getPhotoimg(), viewHolder.ivphotogroupdetail);
             }
+            AbsListView.LayoutParams param = new AbsListView.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.FILL_PARENT,
+                    700);
+            view.setLayoutParams(param);
+
 
             return view;
         }

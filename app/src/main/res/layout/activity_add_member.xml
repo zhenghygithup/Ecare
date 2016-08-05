@@ -64,7 +64,7 @@
                     android:textSize="19sp"
                     android:textColor="@color/Black"/>
                 <TextView
-                    android:id="@+id/tv_chooseRole_CreateGroup"
+                    android:id="@+id/tv_choose_AddMember"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -86,8 +86,6 @@
                 />
         </LinearLayout>
     </ScrollView>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"

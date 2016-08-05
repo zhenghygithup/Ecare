@@ -125,7 +125,8 @@ public  class CreateGroup extends BaseActivity implements NumberPicker.OnValueCh
                 break;
             case R.id.iv_camera_CreateGroup:
                 mMAlertView = new AlertView("Choose Image", null, "Cancel", null,new String[]{"Camera", "Gallery"}, this, AlertView.Style.ActionSheet, this);
-                mMAlertView .show();                break;
+                mMAlertView .show();
+                break;
             case R.id.tv_chooseRole_CreateGroup:
                 if (mPickSelectRoleCreate.getVisibility()==View.GONE){
                     mPickSelectRoleCreate.setVisibility(View.VISIBLE);

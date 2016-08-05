@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
+
 import com.gd.zhenghy.view.DragLayout.Status;
 public class MyRelativeLayout extends RelativeLayout {
     private DragLayout dl;
@@ -23,6 +24,8 @@ public class MyRelativeLayout extends RelativeLayout {
     public void setDragLayout(DragLayout dl) {
         this.dl = dl;
     }
+
+
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {

@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.bigkoo.alertview.AlertView;
 import com.bigkoo.alertview.OnItemClickListener;
-import com.gd.zhenghy.activity.GroupDetail;
+import com.gd.zhenghy.activity.GroupName;
 import com.gd.zhenghy.activity.R;
 import com.gd.zhenghy.bean.GrouplistBean;
 import com.gd.zhenghy.util.Util;
@@ -97,7 +97,7 @@ public class GroupFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Bundle bundle=new Bundle();
                 bundle.putString("groupName",mGrouList.get(i).getGroupName());
-                Intent intent=new Intent(getActivity(), GroupDetail.class);
+                Intent intent=new Intent(getActivity(), GroupName.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

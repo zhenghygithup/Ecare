@@ -33,7 +33,7 @@
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:textSize">@dimen/txt_titleside</item>
-        <item name="android:textColor">@color/txt_white</item>
+        <item name="android:textColor">@drawable/color_titleside</item>
     </style>
 
     <style name="ImageViewTitleSide">
@@ -76,6 +76,14 @@
         <item name="android:layout_height">0.5dp</item>
     </style>
 
+    <!--Tablayout的style-->
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+    </style>
 
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
 
 </resources>

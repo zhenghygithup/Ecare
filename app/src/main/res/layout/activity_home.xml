@@ -101,7 +101,7 @@
             android:layout_marginTop="120dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher"
-            imagecontrol:border_thickness="2dp"/>
+          />
     </RelativeLayout>
 
     <com.gd.zhenghy.view.MyRelativeLayout
