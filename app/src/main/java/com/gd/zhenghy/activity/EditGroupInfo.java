@@ -181,9 +181,7 @@ public class EditGroupInfo extends Activity implements OnItemClickListener,View.
             super.onActivityResult(requestCode, resultCode, data);
         }
 
-        ;
-
-        /**
+    /**
          * 调用系统的裁剪
          *
          * @param uri
