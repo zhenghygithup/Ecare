@@ -32,4 +32,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile project(':ExpandLinearLayout')
     compile 'com.bigkoo:svprogresshud:1.0.4'//中间提示框或进度加载框
+    compile 'com.luffykou:android-common-utils:1.1.3'//工具类
+
 }
